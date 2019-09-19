@@ -1,3 +1,8 @@
+.git.svg
+
+#api_keys
+.env
+
 # Logs
 logs
 *.log
