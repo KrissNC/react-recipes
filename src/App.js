@@ -4,14 +4,16 @@ import './App.css';
 import {recipes} from './tempList';
 
 import RecipeList from './components/RecipeList.jsx';
+import RecipeDetail from './components/RecipeDetail.jsx';
 
 class App extends Component {
   state = {
-    //recipes: recipes,
+    recipes: recipes,
     // to fetch real url 
-    recipes: [],
+    // recipes: [],
     
-    url: "https://www.food2fork.com/api/search?key=" +  process.env.REACT_APP_APIKEY1
+    url: "https://www.food2fork.com/api/search?key=" +  process.env.REACT_APP_APIKEY1,
+    details_id:35382
   };
 
   async getRecipes() {
@@ -31,14 +33,15 @@ class App extends Component {
 
   componentDidMount(){
     // to fetch real url
-    this.getRecipes();
+    // this.getRecipes();
 
   }
   render() {
     //console.log(this.state.recipes);
     return (
         <React.Fragment>
-            <RecipeList recipes={this.state.recipes}></RecipeList>
+            {/* <RecipeList recipes={this.state.recipes}></RecipeList> */}
+            <RecipeDetail id={this.state.details_id} />
         </React.Fragment>
           )
   }
