@@ -5,6 +5,7 @@ export default class RecipeDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // recipe: recipe,
       recipe: recipe,
       url:
         `https://www.food2fork.com/api/get?key=` +
@@ -12,6 +13,22 @@ export default class RecipeDetail extends Component {
         `&rId=${this.props.id}`
     };
   }
+
+  async componentDidMount() {
+    try {
+      console.log('fetching ' + this.state.url);
+      const data = await fetch(this.state.url);
+      const jsonData = await data.json();
+
+      this.setState({
+        recipe: jsonData.recipe
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     const {
       image_url,
@@ -22,7 +39,8 @@ export default class RecipeDetail extends Component {
       ingredients
     } = this.state.recipe;
 
-    console.log(this.state.recipe);
+    // console.log(this.state.recipe);
+
     return (
       <React.Fragment>
         <div className="container">
@@ -62,14 +80,14 @@ export default class RecipeDetail extends Component {
                 recipe page
               </a>
               <ul className="list-group mt-4">
-              <h2 className="mt-3 mb-4">Ingredients</h2> 
-              {
-              ingredients.map((item,index)=>{
-                  return (<li key={index} className="list-group-item text-slanted">
-                        {item}
-                  </li> )
-              })
-              }
+                <h2 className="mt-3 mb-4">Ingredients</h2>
+                {ingredients.map((item, index) => {
+                  return (
+                    <li key={index} className="list-group-item text-slanted">
+                      {item}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

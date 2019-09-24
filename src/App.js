@@ -13,7 +13,7 @@ class App extends Component {
     // recipes: [],
     
     url: "https://www.food2fork.com/api/search?key=" +  process.env.REACT_APP_APIKEY1,
-    details_id:35382
+    details_id:35384
   };
 
   async getRecipes() {
