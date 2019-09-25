@@ -39,6 +39,8 @@ export default class RecipeDetail extends Component {
       ingredients
     } = this.state.recipe;
 
+    const { handleIndex } = this.props;
+
     // console.log(this.state.recipe);
 
     return (
@@ -49,6 +51,7 @@ export default class RecipeDetail extends Component {
               <button
                 type="button"
                 className="btn btn-warning mb-5 text-capitalize"
+                onClick={()=>handleIndex(1)}
               >
                 back to recipe list
               </button>

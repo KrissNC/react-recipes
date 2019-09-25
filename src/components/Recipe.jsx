@@ -7,8 +7,10 @@ export default class Recipe extends Component {
         title, 
         publisher,
         source_url,
-        recpe_id
+        recipe_id
     } = this.props.recipe;
+
+    const { handleDetailsId } = this.props;
 
     return(<React.Fragment>
         <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
@@ -24,7 +26,10 @@ export default class Recipe extends Component {
                     </h6>
                 </div>
                 <div className="card-footer">
-                    <button type="button" className="btn btn-primary text-capitalize" >
+                    <button 
+                    type="button" 
+                    className="btn btn-primary text-capitalize" 
+                    onClick={handleDetailsId}>
                         details
                     </button>
                     <a href={source_url} className="btn btn-success mx-2 text-capitalize" target="_blank" rel="noreferrer noopener">
