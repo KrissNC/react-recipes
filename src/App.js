@@ -26,7 +26,7 @@ class App extends Component {
       //console.log('fetching ' + this.state.url);
       const data = await fetch(this.state.url);
       const jsonData = await data.json();
-      console.log(jsonData);
+      // console.log(jsonData);
       if (jsonData.recipes.length === 0) {
         this.setState(()=>{
           return {error:'sorry, there was no result'}
