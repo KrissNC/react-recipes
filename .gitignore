@@ -1,5 +1,6 @@
 .git.svg
-
+package-lock.json
+yarn.lock
 #api_keys
 .env
 
