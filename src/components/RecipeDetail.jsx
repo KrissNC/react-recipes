@@ -16,7 +16,7 @@ export default class RecipeDetail extends Component {
 
   async componentDidMount() {
     try {
-      console.log('fetching ' + this.state.url);
+      // console.log('fetching ' + this.state.url);
       const data = await fetch(this.state.url);
       const jsonData = await data.json();
 
